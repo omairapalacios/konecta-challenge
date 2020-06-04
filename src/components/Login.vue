@@ -13,7 +13,7 @@
                     contain
                   ></v-img>
                 </v-toolbar>
-                 <v-form @submit.prevent="login">
+                 <v-form @submit.prevent="logIn">
                 <v-card-text>
                     <v-text-field
                       label="Usuario"
@@ -66,12 +66,12 @@ export default {
     };
   },
   methods: {
-    login() {
+    logIn() {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.user, this.password)
-        .then((user) => {
-          console.log(user);
+        .then(() => {
+          this.$router.replace({ path: '/home' });
           
         })
         .catch((err) => {
