@@ -3,7 +3,10 @@ import App from './App.vue';
 import router from './router'
 import vuetify from './plugins/vuetify';
 import firebase from 'firebase';
+import { Datetime } from 'vue-datetime'
+import 'vue-datetime/dist/vue-datetime.css'
 
+Vue.use(Datetime)
 Vue.config.productionTip = false;
 require('firebase/firestore');
 
