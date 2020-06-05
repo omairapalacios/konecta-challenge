@@ -102,13 +102,13 @@
             </v-col>
           </v-row>
           <v-row justify="center">
-            <v-dialog v-model="dialog" max-width="290">
+            <v-dialog v-model="dialog" max-width="400">
               <v-card>
-                <v-card-title class="headline">INFO KONECTA</v-card-title>
+                <v-card-title class="headline">INFO KONECTA: ENTREVISTA AGENDADA</v-card-title>
 
                 <v-card-text>
-                  La entrevista a sido agendada exitosamente. Se notificó 
-                  a los participantes por mensaje de texto.
+                  La entrevista a sido agendada exitosamente. Se notificó a los
+                  participantes por correo eléctronico y mensaje de texto.
                 </v-card-text>
 
                 <v-card-actions>
@@ -140,6 +140,7 @@
 <script>
 import { Datetime } from "vue-datetime";
 import gapi from "gapi-client";
+import firebase from "firebase";
 
 const CLIENT_ID =
   "316561941861-0vv84j8uid9urt0r2mktj2k9c41llg32.apps.googleusercontent.com";
@@ -159,17 +160,16 @@ export default {
       authorized: false,
       datetimeEmpty: "",
       msgError: "",
-      dataMeet: [
-        {
-          namePostulante: "",
-          nameEntrevistador: "",
-          cellphonePostulante: "",
-          cellphoneEntrevistador: "",
-          emailPostulante: "",
-          emailEntrevistador: "",
-          dateAndTime: "",
-        },
-      ],
+      dataMeet: {
+        namePostulante: "",
+        nameEntrevistador: "",
+        cellphonePostulante: "",
+        cellphoneEntrevistador: "",
+        emailPostulante: "",
+        emailEntrevistador: "",
+        dateAndTime: "",
+      },
+
       rules: {
         required: (value) => !!value || "el campo es requerido",
         email: (value) => {
@@ -248,19 +248,32 @@ export default {
 
       return gapi.client.calendar.events
         .insert({
-          calendarId: "omairapalacios95@gmail.com",
+          calendarId: "konectameet@gmail.com",
           resource: meet,
         })
         .then((res) => {
           this.dialog = true;
-          console.log(res.result.htmlLink);
-          console.log(res.result.htmlLink);
-          console.log(res.result.attendees[0].email)
-          console.log(res.result.attendees[1].email)
+          const data = {
+            ...this.dataMeet,
+            linkMeet: res.result.htmlLink,
+          };
+          this.saveMeet(data);
         })
-
         .catch((err) => {
           console.log(err);
+        });
+    },
+
+    saveMeet(data) {
+      firebase
+        .firestore()
+        .collection("meets")
+        .add({ data })
+        .then(() => {
+          console.log("Datos de entrevista almacenados correctamente");
+        })
+        .catch((error) => {
+          console.error("No se pudieron guardar datos de entrevista: ", error);
         });
     },
   },
