@@ -20,10 +20,10 @@ exports.sendEmailNotification=functions.firestore.document('meets/{docId}')
     });
 authData.sendMail({
 from :'konectameet@gmail.com',
-to:`${data.email}`,
+to:`${data.emailEntrevistador}${data.emailPostulante}`,
 subject:'ENTREVISTA KONECTA',
-text:`${data.linkMeet}`,
-html:`${data.linkMeet}`,
+text:`Estimado postulante nos emociona comunicarte que  has sido seleccionado para una entrevista virtual. Puedes revisar los detalles aqui: ${data.linkMeet}.`,
+html:`<p>TALENTO KONECTA`,
 })
 .then(res=>console.log('Correo enviado exitosamente'))
 .catch(err=>console.log(err));
