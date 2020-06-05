@@ -1,5 +1,5 @@
 # KONECTA MEET 
->  Aplicación web usando VueJS, VuetifyJS, NodeJs, Firestore , Cloud Function, Nodemailer y Twilio
+>  Aplicación web usando VueJS, VuetifyJS, NodeJs, Firestore , Cloud Functions, Nodemailer y Twilio
 
 ## Contexto
 
