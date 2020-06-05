@@ -120,6 +120,23 @@
                 </v-card-actions>
               </v-card>
             </v-dialog>
+               <v-dialog v-model="dialogError" max-width="500">
+              <v-card>
+                <v-card-title class="headline red--text">ERROR</v-card-title>
+
+                <v-card-text>
+                Verifica el inicio de sesión actual de cuenta de Gmail.
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                  <v-btn color="teal" text @click="dialogError = false">
+                    ACEPTAR
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-row>
         </v-container>
       </v-card-text>
@@ -156,6 +173,7 @@ export default {
   data() {
     return {
       dialog: false,
+      dialogError: false,
       api: undefined,
       authorized: false,
       datetimeEmpty: "",
@@ -177,7 +195,7 @@ export default {
           return pattern.test(value) || "el correo eléctronico es inválido";
         },
         cellphone: (value) =>
-          (!!value && value.length <= 25) || "El celular debe tener 9 digitos",
+          (!!value && value.length < 10) || "El celular debe tener 9 digitos",
       },
     };
   },
@@ -253,13 +271,17 @@ export default {
         })
         .then((res) => {
           this.dialog = true;
+          console.log(res);
+          console.log(res.result);
+          console.log(res.result.hangoutLink); 
           const data = {
             ...this.dataMeet,
-            linkMeet: res.result.htmlLink,
+            linkMeet: res.result.hangoutLink,
           };
           this.saveMeet(data)
         })
         .catch((err) => {
+          this.dialogError = true;
           console.log(err);
         });
     },
@@ -268,7 +290,7 @@ export default {
       firebase
         .firestore()
         .collection("meets")
-        .add({ data })
+        .add(data)
         .then(() => {
           console.log("Datos de entrevista almacenados correctamente");
         })
