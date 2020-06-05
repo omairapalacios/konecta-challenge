@@ -20,7 +20,7 @@ más en la herremienta utilizada actualmente para generar los eventos : **Google
 Se utilizarían las siguiente herramientas: 
  
  -  **Nodemailer** : es un módulo para aplicaciones Node.js que permite el envío de correos electrónicos de forma sencilla.
- - **Cloud Functions** : Con Cloud Functions permite que los cambios en los registros de bases de datos (Firestore) se ejecutén y gestionen de manera automática.
+ - **Cloud Functions** : permiten que los cambios en los registros de bases de datos (Firestore) se ejecutén y gestionen de manera automática.
 
 **ENVIO DE NOTIFICACIÓN DE LA CITA A TRAVÉS DE SMS**
  
