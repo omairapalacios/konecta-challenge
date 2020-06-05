@@ -3,7 +3,7 @@
 
 ## Contexto
 
-Por diferentes razones: educación, intermitencia del servicio, etc. La aplicación no está enviando las agendas a los postulantes y evaluadores de nivel 2.
+Por diferentes razones: educación, intermitencia del servicio, etc. La aplicación actual no está enviando las agendas a los postulantes y evaluadores de nivel 2.
 
 ## Investigación
 
