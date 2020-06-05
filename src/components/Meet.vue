@@ -248,7 +248,7 @@ export default {
 
       return gapi.client.calendar.events
         .insert({
-          calendarId: "konectameet@gmail.com",
+          calendarId: "omairapalacios95@gmail.com",
           resource: meet,
         })
         .then((res) => {
@@ -257,7 +257,7 @@ export default {
             ...this.dataMeet,
             linkMeet: res.result.htmlLink,
           };
-          this.saveMeet(data);
+          this.saveMeet(data)
         })
         .catch((err) => {
           console.log(err);
