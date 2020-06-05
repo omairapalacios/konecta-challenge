@@ -9,6 +9,7 @@ const {SENDER_EMAIL,SENDER_PASSWORD}= process.env;
 exports.sendEmailNotification=functions.firestore.document('meets/{docId}')
 .onCreate((snap,ctx)=>{
     const data=snap.data();
+    console.log(data);
     let authData=nodemailer.createTransport({
         host:'smtp.gmail.com',
         port:465,
@@ -23,10 +24,10 @@ exports.sendEmailNotification=functions.firestore.document('meets/{docId}')
     });
 authData.sendMail({
 from :'konectameet@gmail.com',
-to:`${data.emailEntrevistador}${data.emailPostulante}`,
+to:`${data.emailPostulante}`,
 subject:'ENTREVISTA KONECTA',
 text:`Estimado postulante nos emociona comunicarte que  has sido seleccionado para una entrevista virtual. Puedes revisar los detalles aqui: ${data.linkMeet}.`,
-html:`<p>TALENTO KONECTA`,
+html:`<p>TALENTO KONECTA</p>`,
 })
 .then(res=>console.log('Correo enviado exitosamente'))
 .catch(err=>console.log(err));
