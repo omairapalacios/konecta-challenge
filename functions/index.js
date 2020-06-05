@@ -16,6 +16,9 @@ exports.sendEmailNotification=functions.firestore.document('meets/{docId}')
         auth:{
             user:SENDER_EMAIL,
             pass:SENDER_PASSWORD
+        },
+        tls: {
+            rejectUnauthorized: false
         }
     });
 authData.sendMail({
