@@ -102,9 +102,9 @@
             </v-col>
           </v-row>
           <v-row justify="center">
-            <v-dialog v-model="dialog" max-width="400">
+            <v-dialog v-model="dialog" max-width="500">
               <v-card>
-                <v-card-title class="headline">INFO KONECTA: ENTREVISTA AGENDADA</v-card-title>
+                <v-card-title class="headline">INFO KONECTA</v-card-title>
 
                 <v-card-text>
                   La entrevista a sido agendada exitosamente. Se notificó a los
