@@ -30,4 +30,4 @@ Se utilizarían las siguiente herramientas:
 
 El avance de ambas propuestas fueron implementadas y se pueden visualizar aquí:  [KONECTA MEEET CHALLENGE ](https://konectameet.web.app/)
 
-[Imgur](https://imgur.com/kKQPx19)
+![img-project](https://imgur.com/kKQPx19)
