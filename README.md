@@ -8,7 +8,7 @@ Por diferentes razones: educación, intermitencia del servicio, etc. La aplicaci
 ## Investigación
 
 Antes de establecer mis propuestas de posibles soluciones, quize indagar un poco
-más en la herremienta utilizada actualmente para generar los eventos : **Google Calendar API**, realizé pruebas con la ayuda de su documentación para entender su funcionamiento y experimenté el mismo problema con respecto al envío de la notificación a los participantes al crear un evento. Pero también pude notar que se puede utilizar data importante que se genera al crear una cita como : la fecha/hora de la entrevista y el link generado para la reunión virtual ( Google Meet ).
+más en la herramienta utilizada actualmente para generar los eventos : **Google Calendar API**, realizé pruebas con la ayuda de su documentación para entender su funcionamiento y experimenté el mismo problema con respecto al envío de la notificación a los participantes al crear un evento. Pero también pude notar que se puede utilizar data importante que se genera al crear una cita como : la fecha/hora de la entrevista y el link generado para la reunión virtual ( Google Meet ).
 
 
 ##  Propuestas
@@ -29,5 +29,8 @@ Se utilizarían las siguiente herramientas:
 
 
 El avance de ambas propuestas fueron implementadas y se pueden visualizar aquí:  [KONECTA MEEET CHALLENGE ](https://konectameet.web.app/)
+
+*Credenciales de prueba 
+ usuario: konectameet@gmail.com | contraseña :Konecta123
 
 ![img-project](https://github.com/omairapalacios/konecta-challenge/blob/master/src/assets/project.png)
