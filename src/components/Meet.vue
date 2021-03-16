@@ -159,15 +159,14 @@ import { Datetime } from "vue-datetime";
 import gapi from "gapi-client";
 import firebase from "firebase";
 
-const CLIENT_ID =
-  "316561941861-0vv84j8uid9urt0r2mktj2k9c41llg32.apps.googleusercontent.com";
-const API_KEY = "AIzaSyCfwKokz0DE10qz5nJs2sM9A_i5rxahSV4";
+const CLIENT_ID = process.env.VUE_APP_CLIENT_ID;
+const API_KEY = process.env.VUE_APP_API_KEY;
 const DISCOVERY_DOCS = [
-  "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
+  process.env.VUE_APP_DISCOVERY_DOCS,
 ];
 
 const SCOPES =
-  "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events";
+  process.env.VUE_APP_SCOPES;
 
 export default {
   data() {
